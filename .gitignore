@@ -3,6 +3,8 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+ppl_not_following_you_back.txt
+ppl_you_are_not_following_back.txt
 # C extensions
 *.so
 
