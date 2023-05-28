@@ -28,6 +28,15 @@ To run the GitHub Follower Checker web application, execute the following comman
 ```bash
 streamlit run main.py
 ```
+<div align="center">
+  <img src="screen_record.gif" alt="Screenshot">
+</div> 
+<!-- <div align="center">
+  <video controls>
+    <source src="screen_record.webm" type="video/webm">
+    Your browser does not support the video tag.
+  </video>
+</div> -->
 ## Authors
 - [ZakariaR1ad ](https://github.com/ZakariaR1ad)
 - [Amdjedbens ](https://github.com/amdjedbens)
