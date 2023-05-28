@@ -1,3 +1,4 @@
+html5lib==1.0.1
 requests==2.28.2
 beautifulsoup4==4.8.2
 streamlit==1.22.0
