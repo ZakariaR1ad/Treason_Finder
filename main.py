@@ -27,73 +27,34 @@ if st.button("Search"):
         F2 = open("ppl_you_are_not_following_back.txt","w")
 
         # TODO: check if number is correct
-        st.write(f"🔔 you have {len(tags_dict)} follower")
-        st.write(f"📌 you are following {len(tags)} people")
+        st.write(f"🔔 you have {len(tags)} follower")
+        st.write(f"📌 you are following {len(tags_following)} people")
         
         st.write(f"list of people {github_username} not following you back :")
-        st.markdown('<div class="container">', unsafe_allow_html=True)
-        all_items = []
-        st.markdown('<ul>', unsafe_allow_html=True)
+        header = "<tr><th>Username</th><th>Fullname</th><th>Github link</th></tr>"
+        elements = []
         for i in tags_following:
             if(not i in tags):
-                st.markdown(
-                    """
-                    <style>
-                    .container {
-                        display: flex;
-                        justify-content: space-between;
-                    }
-                    
-                    .box {
-                        flex-basis: 48%;
-                        border: 1px solid black;
-                    }
-                    </style>
-                    """
-                    , unsafe_allow_html=True
-                )
                 # print(tags_dict[i]) # for debugging
-                all_items.append(f"<li>{tags_dict[i]}</li>")
-                # st.write(tags_dict[i])
+                elements.append(f'<tr> <td>{i}</td> <td>{tags_dict[i]}</td> <td><a href="https://github.com/{i}">https://github.com/{i}</a></td> </tr>')
                 F1.write(i+" "+tags_dict[i]+"\n")
-        st.markdown('</ul>', unsafe_allow_html=True)
-        st.markdown(f'<div class="box">{"".join(all_items)}</div>', unsafe_allow_html=True)
+        st.markdown('<table style="width:100%">'+header+"".join(elements)+"</table>", unsafe_allow_html=True)        
+        
+        st.markdown("<br/>", unsafe_allow_html=True)
 
-        # st.markdown('</div>', unsafe_allow_html=True)
         st.write(f"📌 list of people {github_username} not following back :")
-        # st.markdown('<div class="container">', unsafe_allow_html=True)
-        all_items = []
-        #  open <ul>
-        st.markdown('<ul>', unsafe_allow_html=True)
+        elements = []
         for i in tags:
             if(not i in tags_following):
-                st.markdown(
-                    """
-                    <style>
-                    .container {
-                        display: flex;
-                        justify-content: space-between;
-                    }
-                    .box {
-                        flex-basis: 48%;
-                        padding: 10px; 
-                        margin-bottom: 10px;
-                        border: 1px solid black;
-                    }
-                    </style>
-                    """
-                    , unsafe_allow_html=True
-                )
+                
                 # print(tags_dict[i]) # for debugging
-                all_items.append(f"<li>{tags_dict[i]}</li>")
-
+                elements.append(f'<tr> <td>{i}</td> <td>{tags_dict[i]}</td> <td><a href="https://github.com/{i}">https://github.com/{i}</a></td> </tr>')
                 # st.write(tags_dict[i])
                 F2.write(i+" "+tags_dict[i]+"\n")
                 # close the files
         # close <ul> 
-        st.markdown('</ul>', unsafe_allow_html=True)
-        st.markdown(f'<div class="box">{"".join(all_items)}</div>', unsafe_allow_html=True)
-        st.markdown('</div>', unsafe_allow_html=True)
+        st.markdown('<table style="width:100%">'+header+"".join(elements)+"</table>", unsafe_allow_html=True)        
+
         F1.close()
         F2.close()
     
