@@ -30,7 +30,7 @@ if st.button("Search"):
         st.write(f"🔔 you have {len(tags)} follower")
         st.write(f"📌 you are following {len(tags_following)} people")
         
-        st.write(f"list of people {github_username} not following you back :")
+        st.write(f"list of people not following {github_username} back :")
         header = "<tr><th>Username</th><th>Fullname</th><th>Github link</th></tr>"
         elements = []
         for i in tags_following:
